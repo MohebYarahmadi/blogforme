@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>یه وبلاگ ساده</title>
+    <link rel="stylesheet" href="statics/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>کلی مطلب جالب دارم براتون</h1>
+        <p>A simple blog powered by GitHub Pages</p>
+    </header>
+
+    <main id="content">
+        <div class="loading">Loading posts...</div>
+    </main>
+
+    <footer>
+        <p>Powered by GitHub Pages & Markdown</p>
+    </footer>
+
+    <script>
+        // Configuration - Update these values for your repository
+        const REPO_OWNER = 'MohebYarahmadi';
+        const REPO_NAME = 'blogforme';
+        const POSTS_DIR = 'posts';
+
+        // DOM elements
+        const contentEl = document.getElementById('content');
+
+        // Initialize the blog
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postFile = urlParams.get('post');
+
+            if (postFile) {
+                loadPost(postFile);
+            } else {
+                loadHomePage();
+            }
+        });
+
+        // Load the home page with list of posts
+        async function loadHomePage() {
+            try {
+                contentEl.innerHTML = '<div class="loading">Loading posts...</div>';
+
+                const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${POSTS_DIR}`;
+                const response = await fetch(apiUrl);
+
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch posts: ${response.status}`);
+                }
+
+                const files = await response.json();
+                const mdFiles = files.filter(file =>
+                    file.name.endsWith('.md') && file.type === 'file'
+                );
+
+                mdFiles.sort((a, b) => b.name.localeCompare(a.name));
+
+                if (mdFiles.length === 0) {
+                    contentEl.innerHTML = '<div class="error">No markdown posts found.</div>';
+                    return;
+                }
+
+                let html = '<ul class="posts-list">';
+
+                mdFiles.forEach(file => {
+                    const fileName = file.name.replace('.md', '');
+                    const dateMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})-/);
+                    const date = dateMatch ? dateMatch[1] : 'Unknown date';
+                    const title = dateMatch ? fileName.replace(dateMatch[0], '') : fileName;
+
+                    html += `
+                        <li class="post-item">
+                            <a href="?post=${file.name}" class="post-link">
+                                <div class="post-title">${formatTitle(title)}</div>
+                                <div class="post-date">${date}</div>
+                            </a>
+                        </li>
+                    `;
+                });
+
+                html += '</ul>';
+                contentEl.innerHTML = html;
+
+            } catch (error) {
+                console.error('Error loading posts:', error);
+                contentEl.innerHTML = `
+                    <div class="error">
+                        Failed to load posts: ${error.message}
+                    </div>
+                `;
+            }
+        }
+
+        // Load and display a specific post
+        async function loadPost(filename) {
+            try {
+                contentEl.innerHTML = '<div class="loading">Loading post...</div>';
+
+                const rawUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/${POSTS_DIR}/${filename}`;
+                const response = await fetch(rawUrl);
+
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch post: ${response.status}`);
+                }
+
+                const markdown = await response.text();
+                const htmlContent = marked.parse(markdown);
+                const title = formatTitle(filename.replace('.md', ''));
+
+                document.title = `${title} - My Markdown Blog`;
+
+                contentEl.innerHTML = `
+                    <a href="?" class="back-btn">← Back to all posts</a>
+                    <article class="post-content">
+                        ${htmlContent}
+                    </article>
+                `;
+
+            } catch (error) {
+                console.error('Error loading post:', error);
+                contentEl.innerHTML = `
+                    <div class="error">
+                        Failed to load post: ${error.message}
+                    </div>
+                    <a href="?" class="back-btn">← Back to all posts</a>
+                `;
+            }
+        }
+
+        // Helper function to format titles
+        function formatTitle(str) {
+            return str
+                .split('-')
+                .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+                .join(' ');
+        }
+    </script>
+</body>
+</html>
