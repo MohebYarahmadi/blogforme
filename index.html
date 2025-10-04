@@ -32,8 +32,8 @@
                     <h1 class="hero-title">به وبلاگ من خوش آمدید</h1>
                     <p class="hero-subtitle">Sharing thoughts, ideas, and experiences through writing</p>
                     <div class="hero-buttons">
-                        <a href="#posts" class="btn btn-primary">Read Posts</a>
-                        <a href="#about" class="btn btn-secondary">About Me</a>
+                        <a href="#posts" class="btn btn-primary">پست ها من</a>
+                        <a href="#about" class="btn btn-secondary">درباره من</a>
                     </div>
                 </div>
                 <div class="hero-image">
@@ -56,7 +56,7 @@
                 <div class="feature-card">
                     <div class="feature-icon">💬</div>
                     <h3>Community</h3>
-                    <p>Join the discussion and share your thoughts</p>
+                    <p>دوست دارم توی کانال اختصاصی که در تلگرام راه انداختم باشی.</p>
                 </div>
             </div>
         </section>
@@ -64,8 +64,8 @@
         <!-- Posts Section -->
         <section id="posts" class="section">
             <div class="section-header">
-                <h2>Latest Posts</h2>
-                <p>Explore my recent writings and thoughts</p>
+                <h2>جدیدترین پست ها</h2>
+                <p>آخرین پست هایی که منتشر کردم رو حتما یه نگاه بنداز.</p>
             </div>
             <div id="posts-container">
                 <div class="loading">Loading posts...</div>
@@ -83,14 +83,14 @@
                     <img src="media/profile-pic.jpg" alt="Profile Picture" onerror="this.style.display='none'">
                 </div>
                 <div class="about-text">
-                    <h3>سلام من محب هستم.</h3>
+                    <h3>درود بر تو دوست گرامی</h3>
                     <p>به وبلاگ ساده ای که دارم خوش آمدید.</p>
                     <p>فکر میکنم همیشه شوق نوشتن داشتم ولی این اولین باره که عملیش کردم. اینجا قراره مطالب مفیدی بزارم. بیشتر آموزشیه. خودم آدم کنجکاوی هستم و برای همینم مطالب زیادی رو اغلب از منابع خوبی به دست میارم که فکر میکنم برای بعضیا هم شاید خوب باشه.</p>
                     <div class="skills">
-                        <span class="skill-tag">Writing</span>
-                        <span class="skill-tag">Technology</span>
-                        <span class="skill-tag">Design</span>
-                        <span class="skill-tag">Development</span>
+                        <span class="skill-tag">نویسندگی</span>
+                        <span class="skill-tag">تکنولوژی</span>
+                        <span class="skill-tag">طراحی</span>
+                        <span class="skill-tag">توسعه</span>
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                         <div class="contact-icon">📧</div>
                         <div class="contact-details">
                             <h4>Email</h4>
-                            <p>your.email@example.com</p>
+                            <p>moheb.yarahmadi@gmail.com</p>
                         </div>
                     </div>
                     <div class="contact-item">
@@ -151,177 +151,287 @@
 
     <footer>
         <div class="footer-content">
-            <p>&copy; 2024 My Professional Blog. All rights reserved.</p>
+            <p>&copy; 2025 My Professional Blog. All rights reserved.</p>
             <p>Powered by GitHub Pages & Markdown</p>
         </div>
     </footer>
 
     <script>
-        // Configuration
-        const REPO_OWNER = 'mohebyarahmadi';
-        const REPO_NAME = 'blogforme';
-        const POSTS_DIR = 'posts';
+    // Configuration
+    const REPO_OWNER = 'mohebyarahmadi';
+    const REPO_NAME = 'blogforme';
+    const POSTS_DIR = 'posts';
 
-        // Navigation
-        document.addEventListener('DOMContentLoaded', function() {
-            // Handle navigation
-            document.querySelectorAll('.nav-menu a, .hero-buttons a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const targetId = this.getAttribute('href').substring(1);
-                    showSection(targetId);
+    // Navigation
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle navigation
+        document.querySelectorAll('.nav-menu a, .hero-buttons a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                showSection(targetId);
 
-                    // Update URL without page reload
-                    history.pushState(null, '', `#${targetId}`);
-                });
+                // Update URL without page reload
+                history.pushState(null, '', `#${targetId}`);
             });
-
-            // Handle browser back/forward
-            window.addEventListener('popstate', function() {
-                const hash = window.location.hash.substring(1) || 'home';
-                showSection(hash);
-            });
-
-            // Load initial section
-            const initialSection = window.location.hash.substring(1) || 'home';
-            showSection(initialSection);
-
-            // Load posts for posts section
-            if (initialSection === 'posts') {
-                loadHomePage();
-            }
         });
 
-        function showSection(sectionId) {
-            // Hide all sections
-            document.querySelectorAll('.section').forEach(section => {
-                section.classList.remove('active');
-                section.style.display = 'none';
-            });
+        // Handle browser back/forward
+        window.addEventListener('popstate', function() {
+            const hash = window.location.hash.substring(1) || 'home';
+            showSection(hash);
+        });
 
-            // Show target section
-            const targetSection = document.getElementById(sectionId);
-            if (targetSection) {
-                targetSection.style.display = 'block';
-                setTimeout(() => targetSection.classList.add('active'), 10);
-            }
+        // Load initial section
+        const initialSection = window.location.hash.substring(1) || 'home';
+        showSection(initialSection);
 
-            // Load posts if showing posts section
-            if (sectionId === 'posts') {
-                loadHomePage();
-            }
+        // Load posts for posts section
+        if (initialSection === 'posts') {
+            loadCategories();
+        }
+    });
 
-            // Update active nav link
-            document.querySelectorAll('.nav-menu a').forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active');
-                }
-            });
+    function showSection(sectionId) {
+        // Hide all sections
+        document.querySelectorAll('.section').forEach(section => {
+            section.classList.remove('active');
+            section.style.display = 'none';
+        });
+
+        // Show target section
+        const targetSection = document.getElementById(sectionId);
+        if (targetSection) {
+            targetSection.style.display = 'block';
+            setTimeout(() => targetSection.classList.add('active'), 10);
         }
 
-        // Posts loading functions (same as before, but updated for new structure)
-        async function loadHomePage() {
-            const container = document.getElementById('posts-container');
-            try {
-                container.innerHTML = '<div class="loading">Loading posts...</div>';
-
-                const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${POSTS_DIR}`;
-                const response = await fetch(apiUrl);
-
-                if (!response.ok) throw new Error(`Failed to fetch posts: ${response.status}`);
-
-                const files = await response.json();
-                const mdFiles = files.filter(file => file.name.endsWith('.md') && file.type === 'file');
-                mdFiles.sort((a, b) => b.name.localeCompare(a.name));
-
-                if (mdFiles.length === 0) {
-                    container.innerHTML = '<div class="error">No markdown posts found.</div>';
-                    return;
-                }
-
-                let html = '<div class="posts-grid">';
-                mdFiles.forEach(file => {
-                    const fileName = file.name.replace('.md', '');
-                    const dateMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})-/);
-                    const date = dateMatch ? dateMatch[1] : 'Unknown date';
-                    const title = dateMatch ? fileName.replace(dateMatch[0], '') : fileName;
-
-                    html += `
-                        <div class="post-card">
-                            <a href="#" class="post-card-link" data-file="${file.name}">
-                                <div class="post-card-content">
-                                    <h3 class="post-card-title">${formatTitle(title)}</h3>
-                                    <p class="post-card-date">${date}</p>
-                                    <p class="post-card-excerpt">Click to read this post...</p>
-                                </div>
-                            </a>
-                        </div>
-                    `;
-                });
-                html += '</div>';
-                container.innerHTML = html;
-
-                // Add event listeners to post cards
-                document.querySelectorAll('.post-card-link').forEach(link => {
-                    link.addEventListener('click', function(e) {
-                        e.preventDefault();
-                        loadPost(this.getAttribute('data-file'));
-                    });
-                });
-
-            } catch (error) {
-                console.error('Error loading posts:', error);
-                container.innerHTML = `<div class="error">Failed to load posts: ${error.message}</div>`;
-            }
+        // Load posts if showing posts section
+        if (sectionId === 'posts') {
+            loadCategories();
         }
 
-        async function loadPost(filename) {
-            try {
-                showSection('single-post');
-                const container = document.getElementById('post-content');
-                container.innerHTML = '<div class="loading">Loading post...</div>';
+        // Update active nav link
+        document.querySelectorAll('.nav-menu a').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === `#${sectionId}`) {
+                link.classList.add('active');
+            }
+        });
+    }
 
-                const rawUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/${POSTS_DIR}/${filename}`;
-                const response = await fetch(rawUrl);
+    // Load categories and their posts
+    async function loadCategories() {
+        const container = document.getElementById('posts-container');
+        try {
+            container.innerHTML = '<div class="loading">Loading categories and posts...</div>';
 
-                if (!response.ok) throw new Error(`Failed to fetch post: ${response.status}`);
+            const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${POSTS_DIR}`;
+            const response = await fetch(apiUrl);
 
-                const markdown = await response.text();
-                const htmlContent = marked.parse(markdown);
-                const title = formatTitle(filename.replace('.md', ''));
+            if (!response.ok) throw new Error(`Failed to fetch categories: ${response.status}`);
 
-                container.innerHTML = `
-                    <a href="#posts" class="back-btn">← Back to all posts</a>
-                    <article class="post-content">
-                        <header class="post-header">
-                            <h1>${title}</h1>
-                            <div class="post-meta">
-                                <span class="post-date">${filename.split('-').slice(0,3).join('-')}</span>
-                            </div>
-                        </header>
-                        ${htmlContent}
-                    </article>
-                `;
+            const items = await response.json();
+            const categories = items.filter(item => item.type === 'dir');
 
-                // Add back button event
-                container.querySelector('.back-btn').addEventListener('click', function(e) {
+            if (categories.length === 0) {
+                // If no categories, check for direct markdown files
+                await loadAllPostsDirectly(container);
+                return;
+            }
+
+            let html = '<div class="categories-container">';
+
+            // Load posts for each category
+            for (const category of categories) {
+                const categoryPosts = await loadPostsFromCategory(category.name);
+                html += renderCategorySection(category.name, categoryPosts);
+            }
+
+            html += '</div>';
+            container.innerHTML = html;
+
+            // Add event listeners to post cards
+            document.querySelectorAll('.post-card-link').forEach(link => {
+                link.addEventListener('click', function(e) {
                     e.preventDefault();
-                    showSection('posts');
+                    loadPost(this.getAttribute('data-file'), this.getAttribute('data-category'));
                 });
+            });
 
-            } catch (error) {
-                console.error('Error loading post:', error);
-                document.getElementById('post-content').innerHTML = `
-                    <div class="error">Failed to load post: ${error.message}</div>
-                    <a href="#posts" class="back-btn">← Back to all posts</a>
-                `;
+        } catch (error) {
+            console.error('Error loading categories:', error);
+            container.innerHTML = `<div class="error">Failed to load categories: ${error.message}</div>`;
+        }
+    }
+
+    // Load posts from a specific category folder
+    async function loadPostsFromCategory(categoryName) {
+        try {
+            const categoryUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${POSTS_DIR}/${categoryName}`;
+            const response = await fetch(categoryUrl);
+
+            if (!response.ok) throw new Error(`Failed to fetch posts from ${categoryName}: ${response.status}`);
+
+            const files = await response.json();
+            const mdFiles = files.filter(file => file.name.endsWith('.md') && file.type === 'file');
+            mdFiles.sort((a, b) => b.name.localeCompare(a.name));
+
+            return mdFiles.map(file => ({
+                ...file,
+                category: categoryName
+            }));
+
+        } catch (error) {
+            console.error(`Error loading posts from ${categoryName}:`, error);
+            return [];
+        }
+    }
+
+    // Fallback: Load all posts directly if no categories
+    async function loadAllPostsDirectly(container) {
+        try {
+            const apiUrl = `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/contents/${POSTS_DIR}`;
+            const response = await fetch(apiUrl);
+
+            if (!response.ok) throw new Error(`Failed to fetch posts: ${response.status}`);
+
+            const files = await response.json();
+            const mdFiles = files.filter(file => file.name.endsWith('.md') && file.type === 'file');
+            mdFiles.sort((a, b) => b.name.localeCompare(a.name));
+
+            if (mdFiles.length === 0) {
+                container.innerHTML = '<div class="error">No posts found.</div>';
+                return;
             }
-        }
 
-        function formatTitle(str) {
-            return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+            let html = '<div class="categories-container">';
+            html += renderCategorySection('All Posts', mdFiles.map(file => ({
+                ...file,
+                category: 'uncategorized'
+            })));
+            html += '</div>';
+            container.innerHTML = html;
+
+            // Add event listeners to post cards
+            document.querySelectorAll('.post-card-link').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    loadPost(this.getAttribute('data-file'), '');
+                });
+            });
+
+        } catch (error) {
+            console.error('Error loading posts directly:', error);
+            container.innerHTML = `<div class="error">Failed to load posts: ${error.message}</div>`;
         }
-    </script>
+    }
+
+    // Render a category section with its posts
+    function renderCategorySection(categoryName, posts) {
+        if (posts.length === 0) return '';
+
+        const formattedCategory = formatCategoryName(categoryName);
+
+        let html = `
+            <div class="category-section">
+                <div class="category-header">
+                    <h3 class="category-title">${formattedCategory}</h3>
+                    <span class="post-count">${posts.length} post${posts.length !== 1 ? 's' : ''}</span>
+                </div>
+                <div class="posts-grid">
+        `;
+
+        posts.forEach(post => {
+            const fileName = post.name.replace('.md', '');
+            const dateMatch = fileName.match(/^(\d{4}-\d{2}-\d{2})-/);
+            const date = dateMatch ? dateMatch[1] : 'Unknown date';
+            const title = dateMatch ? fileName.replace(dateMatch[0], '') : fileName;
+
+            html += `
+                <div class="post-card">
+                    <a href="#" class="post-card-link" data-file="${post.name}" data-category="${post.category}">
+                        <div class="post-card-content">
+                            <div class="post-card-category">${formattedCategory}</div>
+                            <h3 class="post-card-title">${formatTitle(title)}</h3>
+                            <p class="post-card-date">${date}</p>
+                            <p class="post-card-excerpt">Click to read this post...</p>
+                        </div>
+                    </a>
+                </div>
+            `;
+        });
+
+        html += `
+                </div>
+            </div>
+        `;
+
+        return html;
+    }
+
+    // Load and display a specific post
+    async function loadPost(filename, category = '') {
+        try {
+            showSection('single-post');
+            const container = document.getElementById('post-content');
+            container.innerHTML = '<div class="loading">Loading post...</div>';
+
+            // Construct the path based on whether we have a category
+            const postPath = category ?
+                `${POSTS_DIR}/${category}/${filename}` :
+                `${POSTS_DIR}/${filename}`;
+
+            const rawUrl = `https://raw.githubusercontent.com/${REPO_OWNER}/${REPO_NAME}/main/${postPath}`;
+            const response = await fetch(rawUrl);
+
+            if (!response.ok) throw new Error(`Failed to fetch post: ${response.status}`);
+
+            const markdown = await response.text();
+            const htmlContent = marked.parse(markdown);
+            const title = formatTitle(filename.replace('.md', ''));
+
+            container.innerHTML = `
+                <a href="#posts" class="back-btn">← Back to all posts</a>
+                <article class="post-content">
+                    <header class="post-header">
+                        <div class="post-category">${formatCategoryName(category)}</div>
+                        <h1>${title}</h1>
+                        <div class="post-meta">
+                            <span class="post-date">${filename.split('-').slice(0,3).join('-')}</span>
+                        </div>
+                    </header>
+                    ${htmlContent}
+                </article>
+            `;
+
+            // Add back button event
+            container.querySelector('.back-btn').addEventListener('click', function(e) {
+                e.preventDefault();
+                showSection('posts');
+            });
+
+        } catch (error) {
+            console.error('Error loading post:', error);
+            document.getElementById('post-content').innerHTML = `
+                <div class="error">Failed to load post: ${error.message}</div>
+                <a href="#posts" class="back-btn">← Back to all posts</a>
+            `;
+        }
+    }
+
+    // Helper function to format category names
+    function formatCategoryName(category) {
+        if (!category || category === 'uncategorized') return 'General';
+        return category
+            .split('-')
+            .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+            .join(' ');
+    }
+
+    function formatTitle(str) {
+        return str.split('-').map(word => word.charAt(0).toUpperCase() + word.slice(1)).join(' ');
+    }
+</script>
 </body>
 </html>

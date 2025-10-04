@@ -510,3 +510,463 @@ footer {
         text-align: center;
     }
 }
+
+/* Categories Styles */
+.categories-container {
+    space-y: 3rem;
+}
+
+.category-section {
+    margin-bottom: 3rem;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid var(--border-light);
+}
+
+.category-title {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin: 0;
+}
+
+.post-count {
+    background-color: var(--bg-tertiary);
+    color: var(--text-secondary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    border: 1px solid var(--border);
+}
+
+.post-card-category {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    padding: 0.25rem 0.75rem;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.post-header .post-category {
+    display: inline-block;
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Enhanced posts grid for categories */
+.posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 0;
+}
+
+.post-card {
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.post-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.post-card-content {
+    padding: 1.5rem;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.post-card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+    color: var(--accent);
+    line-height: 1.4;
+}
+
+.post-card-date {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.post-card-excerpt {
+    color: var(--text-primary);
+    line-height: 1.5;
+    flex-grow: 1;
+    opacity: 0.8;
+}
+
+/* Responsive design for categories */
+@media (max-width: 768px) {
+    .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .category-title {
+        font-size: 1.5rem;
+    }
+
+    .posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .post-card-content {
+        padding: 1.25rem;
+    }
+}
+
+
+/* Enhanced Responsive Design for Blog Posts */
+.post-content {
+    padding: 2rem 0;
+    max-width: 100%;
+    overflow-wrap: break-word;
+}
+
+/* Responsive typography for post content */
+.post-content h1 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin: 2rem 0 1rem 0;
+    padding-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.post-content h2 {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin: 1.8rem 0 0.8rem 0;
+    line-height: 1.3;
+}
+
+.post-content h3 {
+    font-size: clamp(1.3rem, 3vw, 1.7rem);
+    margin: 1.5rem 0 0.6rem 0;
+    line-height: 1.4;
+}
+
+.post-content p {
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    margin-bottom: 1.2rem;
+    line-height: 1.7;
+    text-align: justify;
+    word-spacing: -0.5px;
+}
+
+/* Responsive code blocks */
+.post-content pre {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    padding: 1rem;
+    margin: 1.2rem 0;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    border-radius: 8px;
+    direction: ltr;
+}
+
+.post-content code {
+    font-size: 0.9em;
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+    direction: ltr;
+    word-break: break-word;
+}
+
+/* Responsive tables */
+.post-content table {
+    font-size: clamp(0.8rem, 2vw, 0.9rem);
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    margin: 1.5rem 0;
+}
+
+.post-content th,
+.post-content td {
+    padding: 0.8rem;
+    min-width: 120px;
+}
+
+/* Responsive images */
+.post-content img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 1.5rem auto;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+}
+
+/* Responsive lists */
+.post-content ul,
+.post-content ol {
+    margin-right: 1.5rem;
+    margin-bottom: 1.2rem;
+    padding-right: 0.5rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1rem, 2.5vw, 1.1rem);
+    line-height: 1.6;
+}
+
+/* Responsive blockquotes */
+.post-content blockquote {
+    padding: 1.2rem 1.5rem;
+    margin: 1.5rem 0;
+    font-size: clamp(0.95rem, 2.5vw, 1.05rem);
+    border-right-width: 4px;
+}
+
+/* Mobile-first responsive design */
+@media (max-width: 768px) {
+    body {
+        padding: 15px 10px;
+        line-height: 1.5;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+
+    .post-content {
+        padding: 1rem 0;
+    }
+
+    .post-header {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        text-align: center;
+    }
+
+    .post-header h1 {
+        font-size: 1.6rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .post-meta {
+        font-size: 0.9rem;
+    }
+
+    /* Improve code readability on mobile */
+    .post-content pre {
+        padding: 0.8rem;
+        margin: 1rem -10px;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+    }
+
+    .post-content code {
+        font-size: 0.85em;
+    }
+
+    /* Adjust lists for mobile */
+    .post-content ul,
+    .post-content ol {
+        margin-right: 1rem;
+    }
+
+    /* Stack category header on mobile */
+    .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .category-title {
+        font-size: 1.4rem;
+    }
+
+    /* Single column layout for posts grid on mobile */
+    .posts-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .post-card {
+        margin-bottom: 0;
+    }
+
+    .post-card-content {
+        padding: 1.2rem;
+    }
+
+    .post-card-title {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px 8px;
+        font-size: 14px;
+    }
+
+    .post-content {
+        padding: 0.5rem 0;
+    }
+
+    .post-header h1 {
+        font-size: 1.4rem;
+        line-height: 1.3;
+    }
+
+    .post-content p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+        text-align: right;
+    }
+
+    .post-content h2 {
+        font-size: 1.3rem;
+    }
+
+    .post-content h3 {
+        font-size: 1.1rem;
+    }
+
+    .post-content blockquote {
+        padding: 1rem;
+        margin: 1rem 0;
+        font-size: 0.95rem;
+    }
+
+    .back-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        padding: 0.8rem 1rem;
+    }
+
+    /* Force single column for very small screens */
+    .posts-grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Adjust navigation for mobile */
+    .nav-menu {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .nav-menu a {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+    }
+}
+
+/* Fix for RTL specific responsive issues */
+[dir="rtl"] .post-content pre,
+[dir="rtl"] .post-content code {
+    direction: ltr;
+    text-align: left;
+}
+
+[dir="rtl"] .post-content table {
+    direction: ltr;
+}
+
+/* Ensure proper text sizing on all devices */
+html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Improve touch targets for mobile */
+@media (max-width: 768px) {
+    .post-card-link,
+    .back-btn,
+    .btn {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+    }
+
+    .nav-menu a {
+        min-height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Responsive hero section */
+@media (max-width: 768px) {
+    .hero-banner {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 2rem 0;
+        text-align: center;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .btn {
+        width: 200px;
+    }
+}
+
+/* Responsive about section */
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .about-image img {
+        max-width: 200px;
+    }
+}
+
+/* Responsive contact section */
+@media (max-width: 768px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .social-links {
+        justify-content: center;
+    }
+}
