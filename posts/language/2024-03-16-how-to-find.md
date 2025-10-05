@@ -1,48 +1,12 @@
+![image to show](../../media/190774.jpg)
+
 ```markdown
 ---
 title: "راهنمای جامع برنامه‌نویسی مدرن: از مفاهیم پایه تا معماری‌های پیشرفته"
 date: "2024-03-15"
 author: "نویسنده"
 excerpt: "در این مقاله به بررسی مفاهیم اساسی برنامه‌نویسی مدرن و انتقال به سمت معماری‌های پیشرفته می‌پردازیم."
-category: "توسعه نرم‌افزار"
-tags: ["برنامه‌نویسی", "معماری", "جاوااسکریپت", "Node.js"]
----
-
-# راهنمای جامع برنامه‌نویسی مدرن
-
-در دنیای امروز، برنامه‌نویسی نه تنها یک مهارت فنی، بلکه یک زبان جهانی برای حل مسائل پیچیده است. این مقاله به بررسی جنبه‌های مختلف برنامه‌نویسی مدرن می‌پردازد.
-
-## مقدمه‌ای بر تحولات اخیر
-
-```javascript
-// نمونه کد مدرن JavaScript
-class Developer {
-  constructor(name, skills) {
-    this.name = name;
-    this.skills = skills;
-    this.projects = [];
-  }
-
-  async develop(project) {
-    try {
-      const result = await this.implement(project);
-      this.projects.push(result);
-      return result;
-    } catch (error) {
-      console.error('خطا در توسعه:', error);
-      throw error;
-    }
-  }
-
-  implement(project) {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve(`${project} - تکمیل شده`);
-      }, 1000);
-    });
-  }
-}
-```
+![Image to show](../../media/190774.jpg)
 
 ### مفاهیم اساسی برنامه‌نویسی
 

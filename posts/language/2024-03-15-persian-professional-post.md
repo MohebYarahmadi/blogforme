@@ -43,7 +43,7 @@ class Developer {
   }
 }
 ```
-![image for cover](../../media/torii_gate.jfif)
+![Alt text](../../media/torii_gate.jfif)
 ### مفاهیم اساسی برنامه‌نویسی
 
 برنامه‌نویسی مدرن بر چند اصل مهم استوار است:

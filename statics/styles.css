@@ -1,6 +1,15 @@
 /* Your existing font faces and root variables here */
 @font-face {
     font-family: 'Vazir';
+    src: url('IRANSans-Edit.ttf') format('ttf'),
+         url('IRANSansBold-Edit.ttf') format('ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'IranSans';
     src: url('fonts/Vazir.woff2') format('woff2'),
          url('fonts/Vazir.woff') format('woff');
     font-weight: normal;
@@ -31,7 +40,7 @@
 }
 
 body {
-    font-family: 'Vazir', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    font-family: 'IRANSans', 'Vazir', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
     background-color: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
