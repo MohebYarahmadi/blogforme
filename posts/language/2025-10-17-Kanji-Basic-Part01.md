@@ -1,5 +1,6 @@
 # شروع یادگیری کانجی های ژاپنی
-<img src="./media/Kanji_banner_part1.png" alt="kanji_radicals_part_1" style="max-width: 100%; height: auto; border: 1px solid #000;">
+<!-- <img src="media/Kanji_banner_part1.png" alt="kanji_radicals_part_1" style="max-width: 100%; height: auto; border: 1px solid #000;"> -->
+![Alt text]({{ site.baseurl }}/media/Kanji_banner_part1.png)
 
 
 
@@ -98,7 +99,7 @@
 
 کد زیر رو برای ورود به کانال آموزش زبان ژاپنی اسکن کنید.
 
-<img src="./media/learn_japanese_channer.jpg" alt="kanji_radicals_part_1" style="max-width: 100%; height: auto; border: 1px solid #000;">
-
+<!-- <img src="media/learn_japanese_channer.jpg" alt="kanji_radicals_part_1" style="max-width: 100%; height: auto; border: 1px solid #000;"> -->
+![Alt text]({{ site.baseurl }}/media/learn_japanese_channer.jpg)
 
 
