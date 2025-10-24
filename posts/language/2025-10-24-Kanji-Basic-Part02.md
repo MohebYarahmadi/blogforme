@@ -48,51 +48,51 @@
 
 1. کانجی ها از چپ به راست ترسیم یا نوشته میشن.
 
-   ![](./media/left-to-right.png)
+   <img src="./media/left-to-right.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
 2. کانجی ها از بالا به پایین نوشته میشن.
 
-   ![](./media/top-to-bottom.png)
+   <img src="./media/top-to-bottom.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
 3. معمولا خطوط افقی yoko sen قبل از خطوط عمودی tate sen ترسیم میشن حتی اگر خط عمودی منحنی باشه. (**استثنا هایی هم داریم**)
 
-   ![](./media/h-before-v.png)
+   <img src="./media/h-before-v.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
    استثنا:
 
-   ![](./media/h-before-v-ex.png)
+   <img src="./media/h-before-v-ex.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
 4. زمانی که کاراکتر کانجی به نوعی قرینه است، از وسط شروع میکنیم، بهد به سمت چپ و بعد به سمت راست میریم.
 
-   ![](./media/mid-left-right.png)
+   <img src="./media/mid-left-right.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
    استثنا:
 
-   ![](./media/mid-left-right-ex.png)
+   <img src="./media/mid-left-right-ex.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
 5. ابتدا اطراف کاراکتر به جز خط پایینی ترسیم میشه و قبل از شکل میانی.
 
-   ![](./media/round-then-mid.png)
+   <img src="./media/round-then-mid.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
    استثنا:
 
-   ![](./media/round-then-mid-ex.png)
+   <img src="./media/round-then-mid-ex.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
 6. خط مورب لغزشی به سمت چپ قبل از خط مورب توقفی سمت راست نوشته میشه.
 
-   ![](./media/sweepleft-then-right.png)
+   <img src="./media/sweepleft-then-right.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
 7. خط میانی عمودی tate sen که از میان کاراکتر عبور میکنه، در آخر ترسیم میشه.
 
-   ![](./media/vmid-last.png)
+   <img src="./media/vmid-last.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
 8. خط میانی افقی yoko sen که از میان کاراکتر عبور میکنه در آخر ترسیم میشه.
 
-   ![](./media/hmid-last.png)
+   <img src="./media/hmid-last.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
 9. قسمت پایین سمت چپ رو آخر ترسیم میکنیم.
 
-   ![](./media/low-left-last.png)
+   <img src="./media/low-left-last.png" alt="kanji_radicals_part_2" style="max-width: 100%; height: auto; border: 1px solid #000;">
 
 
 
